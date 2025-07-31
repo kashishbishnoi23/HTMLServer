@@ -1,0 +1,29 @@
+body{
+    font-size: 20px;
+}
+
+div{
+    font-size:40px;
+}
+
+/* this div is a selector -> element selector */
+
+/*  types of selectors : class, id, attribute 
+ */
+
+
+ #list{
+    color:blue;
+ }
+
+ .product{
+    color:pink;
+ }
+
+ table, tr, td{
+    border: 1px solid black;
+    margin:2px;
+ }
+
+ /* 10 buttons -> same class -> access the 8th button -> document.getElementByClassName -> returns
+ an array of elements -> access the 8th element from the array */

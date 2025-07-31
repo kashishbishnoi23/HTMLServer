@@ -1,0 +1,79 @@
+<!DOCTYPE html5>
+<html  lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <!-- meta -> metadata -> data about data  -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />  
+        <!-- content="width=device-width" -> pehle sab kuch desktop pe chalta tha so there was no need of this 
+         name="viewport" -> is meta ka naam hai viewport , content="width=device-width" -> application ko device ki width assign hogi , initial-scale=1.0 -> decides the initial zoom level, user-scalable -> yes/no (allow the user to change the zoom level of the application) -->
+     
+        <title>My web page</title>
+        <link rel="stylesheet" href="CSS/style.css" />  
+        <!-- stylesheet is the relationship  -->
+
+        <!-- sbse pehle head execute hota hai  -->
+        <script src="script.js" defer> </script> 
+
+        <script src="data.js" async ></script>
+        <!-- this script.js will be loaded first cuz it is in head tag, problem -> blank screen appears till script loads -->
+         <!-- script.js will be downloaded -> will  be executed but if we add defer -> defer lgane se hoga -> html pehle parse hogi fir script.js execute hogi -->
+
+        <!-- one by one sari files download hogi -> first index.html, then style.css, then script.js -->
+
+        <!-- html manipulation krna hai using js -> use defer -->
+
+        <!-- another mode -> async -> jab html manipulation nahi krna -> we want to improve the performance by saving time -->
+
+        <!-- 
+        <script> </script> -> is case me pehle script download hogi -> execute script.js -> then parses html
+
+        <script async> </script> -> is case me browser downlads the script while continuing to parse the HTML (non blocking)
+        Once the script is downloaded, it is executed immediately, even if HTML parsing isnt done yet, yani jase hi script download hogi -> it will stop parsing html , will start executing script -> jab script execution khatam hoga fir HTML parsing resume hogi
+        
+        -->
+
+        <!--  pehle static html ko render kro -> then render script.js -> add more dynamic data  -> script.js -> will call data from server -> will take time -> then data.js is used to render products -->
+
+        <!--  ab hamara data stored hai data.js me -> ham ye chahte hain ki jase hi hamaara data server se aaye -> aate hi application me available ho jaye -> agar ham pehle data access krte hain fir HTML parse krte hain to site blank dikhegi jab tak data nhi ayega -> so ham yaha async ka use krenge -> jab data server se aa raha hoga tab sath sath parallely html bhi parse honi start ho jayegi -> jase hi kuch time me data available hoga -> it will be injected to the html code -->
+
+        <!-- main point -> browser me sari files ek hi runtime environment me run krti hai -> there's no actual seperation of code -->
+
+
+
+
+    </head>
+
+    <body>
+        <div id="tag1">Hello world from html</div>
+        <!-- shows Hello world from html , not Hello world from Javascript -> because html parse hone se pehle script execute hogi -> so script ko pata hi nahi ki tag1 id konsi hai kaha hai -> so it throws error -> says cannot set properties of null -->
+
+        <!-- iska matlab -> sari files download to sequentially hoti hai -> pehle index.html, fir style.css fir script.js download hogi -> but is case me ho ye rha hai ki script.js download hone k baad execute bhi hori hai -> html parse hone se pehle hi , isliye error aata hai -> because it doesnt know the tags etc of html yet -->
+
+        <!-- isliye -> defer ka use hota hai -> yani defer lagane se ye hoga -> script file download ho jayegi but execute nahi hogi -> execute html parse hone ke baad hi hogi  -->
+
+        <!-- but agar script tag body k baad likhenge to defer ki need nhi hai => pehle html parse hogi fir script execute hogi  -->
+
+        <!-- js is a scripting language -> line by line execute krta hai, programming language me jump krta hai -->
+
+
+        <!-- semantic tags -> used to make website search-engine friendly -> eg, head is a semantic tag -> google shows the head at top  -->
+
+        <head>Welcome to ecommerce site</head>
+
+        <div id="list"> List of products</div>
+
+        <div id="data">
+            
+      
+        </div>
+
+        <div id="array">
+
+        </div>
+
+
+
+    
+    </body>
+
+</html>
